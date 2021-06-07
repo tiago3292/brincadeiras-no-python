@@ -1,4 +1,4 @@
-#Recolhe inputs e adicionam eles em uma lista vazia
+#Coleta inputs e adicionam eles em uma lista vazia
 x = []
 print('Insira um nome:')
 x.append(input().capitalize())
