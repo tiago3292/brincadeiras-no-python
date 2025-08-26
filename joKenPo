@@ -1,0 +1,47 @@
+import random
+
+print("Bem vindo ao jogo de JoKenPo!")
+
+def jogo():
+    
+    joKenPo = ["Pedra", "Papel", "Tesoura"]
+    
+    # Verfica se o input do usuario é válido, subtrai 1 para que o index seja válido
+    # e armazena na variavel escolha_index
+    while True:
+        escolha = input(
+            "Escolha uma opção: \n1 - Pedra\n2 - Papel\n3 - Tesoura\n: ")
+
+        try:
+            escolha_num = int(escolha)
+            if escolha_num in [1, 2, 3]:
+                escolha_index = escolha_num - 1
+                break
+            else:
+                print("Por favor, escolha apenas 1, 2 ou 3!")
+        except ValueError:
+            print("Por favor, digite apenas números!")
+
+    rng = random.randint(0, 2)
+
+    # Verifica se o usuario ganhou, perdeu ou empatou
+    if joKenPo[escolha_index] == joKenPo[rng - 1]:
+        print("Você escolheu: " + joKenPo[escolha_index] +
+              "\nO computador escolheu: " + joKenPo[rng] + "\nVocê perdeu")
+    elif joKenPo[escolha_index] == joKenPo[rng - 2]:
+        print("Você escolheu: " + joKenPo[escolha_index] +
+              "\nO computador escolheu: " + joKenPo[rng] + "\nVocê ganhou")
+    else:
+        print("Você escolheu: " + joKenPo[escolha_index] +
+              "\nO computador escolheu: " + joKenPo[rng] + "\nEmpate")
+
+jogo()
+
+# Verifica se o usuario deseja jogar novamente
+restart = ""
+
+while restart != "n":
+    restart = input("Deseja jogar novamente? (s/n): ")
+    if restart == "s":
+        jogo()
+    print("Obrigado por jogar!")
